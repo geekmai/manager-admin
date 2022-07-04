@@ -1,0 +1,99 @@
+import { http } from '@/plugins/axios'
+
+// 登录
+// 定义返回值的类型
+interface LoginInterface {
+  id: string
+  role: string
+  success: boolean
+  token: string
+  username: string
+}
+export async function login(data: Object) {
+  return http.request<LoginInterface>({
+    url: 'api/users/login',
+    method: 'POST',
+    data
+  })
+}
+
+// 注册新用户
+export async function userSubmit(data: Object) {
+  return http.request({
+    url: '/api/users/operate',
+    method: 'POST',
+    data
+  })
+}
+
+// 获取所有用户的账号信息
+// 定义数组包对象的类型
+interface Page {
+  pageNum: number
+  pageSize: number
+  total: number
+}
+interface UserInfo {
+  list: Array<object>
+  page: Page
+}
+// interface AllUsersInfoInterface extends Array<UserInfo> {}
+// export async function getAllSysUsers() {
+//   return http.request<AllUsersInfoInterface>({
+//     url: '/api/user/profile/getAllSysUsers',
+//     method: 'GET'
+//   })
+// }
+export async function getAllSysUsers(data: Object) {
+  return http.request<UserInfo>({
+    url: '/api/users/list',
+    method: 'POST',
+    data: data
+  })
+}
+// 删除用户
+// export async function deleteUser(userId: string) {
+//   return http.request({
+//     url: `/api/user/profile/${userId}`,
+//     method: 'DELETE'
+//   })
+// }
+export async function deleteUser(data: Object) {
+  return http.request({
+    url: '/api/users/delete',
+    method: 'POST',
+    data
+  })
+}
+// 更新用户信息
+export async function editUser(userId: string, data: Object) {
+  return http.request({
+    url: `/api/user/profile/username/${userId}`,
+    method: 'PATCH',
+    data
+  })
+}
+// 修改密码
+export async function editPassword(userId: string, data: Object) {
+  return http.request({
+    url: `/api/user/profile/password/${userId}`,
+    method: 'PATCH',
+    data
+  })
+}
+
+// 获取用户角色列表
+export async function getRolesList() {
+  return http.request({
+    url: '/api/roles/allList',
+    method: 'GET'
+  })
+}
+
+// 获取部门列表
+export async function getDeptsList() {
+  return http.request({
+    url: '/api/dept/list',
+    method: 'GET'
+  })
+}
