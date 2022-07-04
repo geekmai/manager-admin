@@ -62,6 +62,26 @@ const menus = reactive([
     ]
   },
   {
+    path: '/menu',
+    redirect: '/menu',
+    name: 'Menu',
+    meta: {
+      title: '菜单管理',
+      icon: 'UserFilled'
+    },
+    children: [
+      {
+        path: 'manager',
+        name: 'MenuManager',
+        component: () => import('@/views/menu/Menu.vue'),
+        meta: {
+          title: '菜单管理',
+          icon: 'UserFilled'
+        }
+      }
+    ]
+  },
+  {
     path: '/storesLocation',
     redirect: '/storesLocation',
     name: 'storesLocation',

@@ -59,6 +59,30 @@ const routes: Array<RouteRecordRaw> = [
     ]
   },
   {
+    path: '/menu',
+    redirect: '/menu/manager',
+    name: 'Menu',
+    component: LayoutPages,
+    meta: {
+      title: '菜管理',
+      affix: true,
+      icon: 'UserFilled',
+      isAuth: true
+    },
+    children: [
+      {
+        path: 'manager',
+        name: 'MenuManager',
+        component: () => import('@/views/menu/Menu.vue'),
+        meta: {
+          title: '菜单管理',
+          icon: 'UserFilled',
+          isAuth: true
+        }
+      }
+    ]
+  },
+  {
     path: '/stores',
     redirect: '/stores/Location',
     name: 'storesLocation',
@@ -210,19 +234,19 @@ const router = createRouter({
   routes: routes
 })
 // 路由守卫
-router.beforeEach((to, from, next) => {
-  const { isAuth } = to.meta
-  const token = getToken()
-  if (isAuth) {
-    if (token) {
-      next()
-    } else {
-      router.push({ path: '/login' })
-      // window.location.reload()
-    }
-  } else {
-    next()
-  }
-})
+// router.beforeEach((to, from, next) => {
+//   const { isAuth } = to.meta
+//   const token = getToken()
+//   if (isAuth) {
+//     if (token) {
+//       next()
+//     } else {
+//       router.push({ path: '/login' })
+//       // window.location.reload()
+//     }
+//   } else {
+//     next()
+//   }
+// })
 
 export default router

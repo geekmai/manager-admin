@@ -1,108 +1,82 @@
-/*
-YUI 3.18.1 (build f7e7bcb)
-Copyright 2014 Yahoo! Inc. All rights reserved.
-Licensed under the BSD License.
-http://yuilibrary.com/license/
-*/
-
-html {
-  color: #000;
-  background: #fff;
+html, body {
+  height: 100%;
+  width: 100%;
+}
+*:not([class^='el-']) {
   box-sizing: border-box;
 }
-body,
-div,
-dl,
-dt,
-dd,
-ul,
-ol,
-li,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-pre,
-code,
-form,
-fieldset,
-legend,
-input,
-textarea,
-p,
-blockquote,
-th,
-td {
-  margin: 0;
-  padding: 0;
+.white{
+  background-color: #ffffff;
 }
-ol,
-ul {
-  list-style: none;
+a{
+  text-decoration: none;
 }
-q:before,
-q:after {
-  content: '';
+.gray{
+  background-color: #eef0f3;
 }
-// table {
-//   border-collapse: collapse;
-//   border-spacing: 0;
-// }
-// fieldset,
-// img {
-//   border: 0;
-// }
-// address,
-// caption,
-// cite,
-// code,
-// dfn,
-// em,
-// strong,
-// th,
-// var {
-//   font-style: normal;
-//   font-weight: normal;
-// }
+.mr10{
+  margin-right: 10px;
+}
+.mr20{
+  margin-right: 20px;
+}
+.mb20{
+  margin-bottom: 20px;
+}
+.m-lr10{
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.p20{
+  padding: 20px;
+}
+.pl20{
+  padding-left: 20px;
+}
+.text-right{
+  text-align: right;
+}
+.fr{
+  float: right;
+}
+.flex{
+  display: flex;
+}
+.flex-between{
+  display: flex;
+  justify-content: space-between;
+}
+.flex-center{
+  display: flex;
+  justify-content: center;
+}
+.tips{
+  margin-left: 15px;
+  color: #787878;
+}
 
-// caption,
-// th {
-//   text-align: left;
-// }
-// h1,
-// h2,
-// h3,
-// h4,
-// h5,
-// h6 {
-//   font-size: 100%;
-//   font-weight: normal;
-// }
 
-// abbr,
-// acronym {
-//   border: 0;
-//   font-variant: normal;
-// }
-// sup {
-//   vertical-align: text-top;
-// }
-// sub {
-//   vertical-align: text-bottom;
-// }
-// input,
-// textarea,
-// select {
-//   font-family: inherit;
-//   font-size: inherit;
-//   font-weight: inherit;
-//   *font-size: 100%;
-// }
-// legend {
-//   color: #000;
-// }
-// #yui3-css-stamp.cssreset {
-//   display: none;
-// }
+/*
+* 公共样式
+*/
+.query-form {
+  background-color: #ffffff;
+  padding: 22px 20px 0;
+  border-radius: 5px;
+}
+.base-table {
+  border-radius: 5px;
+  background: #ffffff;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  .action {
+    border-radius: 5px 5px 0px 0px;
+    background: #ffffff;
+    padding: 20px;
+    border-bottom: 1px solid #ece8e8;
+  }
+  .pagination {
+    text-align: right;
+    padding: 10px;
+  }
+}

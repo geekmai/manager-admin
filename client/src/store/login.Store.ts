@@ -1,5 +1,6 @@
+//@ts-nocheck
 import { defineStore } from 'pinia'
-import { login } from '@/api/userApi'
+import login from '@/api/userApi'
 import { setToken, removeToken } from '@/utils/token'
 import { UserType } from './type'
 

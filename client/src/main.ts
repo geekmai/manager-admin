@@ -2,6 +2,7 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
 import './styles/index.scss'
+import './styles/reset.css'
 // 引入 pinia
 import { createPinia } from 'pinia'
 import * as ElIcons from '@element-plus/icons-vue'

@@ -5,8 +5,8 @@ import { Lock, User } from '@element-plus/icons-vue'
 import { ElMessage } from 'element-plus'
 import 'element-plus/es/components/message/style/css'
 import { useRouter } from 'vue-router'
-import { loginStore } from '@/store/login.Store'
-// import { login } from '@/api/userApi'
+// import { loginStore } from '@/store/login.Store'
+import { login } from '@/api/userApi'
 // 表单数据
 const loginForm = reactive({
   userName: 'admin',
@@ -26,19 +26,20 @@ const loginRules = reactive<FormRules>({
 
 // 登录表单提交
 const router = useRouter()
-const loginStoreI = loginStore()
+// const loginStoreI = loginStore()
 const onSubmit = async () => {
   try {
-    const userData = await loginStoreI.userLogin(loginForm)
+    const userData = await login(loginForm)
+    // const userData = await loginStoreI.userLogin(loginForm)
     // console.log(userData)
-    if (userData.code == 200) {
-      ElMessage({
-        message: '登陆成功！',
-        type: 'success',
-        center: true
-      })
-      router.push({ path: '/index' })
-    }
+    // if (userData.code == 200) {
+    ElMessage({
+      message: '登陆成功！',
+      type: 'success',
+      center: true
+    })
+    router.push({ path: '/index' })
+    // }
     // console.log(userData)
   } catch (error) {
     console.log(error)

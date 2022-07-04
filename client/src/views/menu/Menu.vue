@@ -499,42 +499,42 @@ const handelEdit = (row: any) => {
   display: flex;
   flex-direction: column;
   position: relative;
-  // .query-form {
-  //   height: 60px !important;
-  //   background-color: white;
-  //   display: flex;
-  //   align-items: center;
-  //   margin-bottom: 10px;
-  //   border-radius: 5px;
-  //   .el-form {
-  //     width: 100%;
-  //     height: 60px;
-  //     display: flex;
-  //     align-items: center;
-  //     margin-left: 20px;
-  //     // justify-content: center;
-  //     .el-form-item {
-  //       margin-bottom: 0;
-  //     }
-  //   }
-  // }
-  // .base-table {
-  //   background-color: white;
-  //   border-radius: 5px;
-  //   flex: 1;
-  //   height: 100%;
-  //   overflow-y: scroll;
+  .query-form {
+    height: 60px !important;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    .el-form {
+      width: 100%;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      margin-left: 20px;
+      // justify-content: center;
+      .el-form-item {
+        margin-bottom: 0;
+      }
+    }
+  }
+  .base-table {
+    background-color: white;
+    border-radius: 5px;
+    flex: 1;
+    height: 100%;
+    overflow-y: scroll;
 
-  //   .action {
-  //     margin-left: 20px;
-  //     background-color: white;
-  //     height: 50px;
-  //     display: flex;
-  //     align-items: center;
-  //   }
-  //   .form-table {
-  //     margin-left: 8px;
-  //   }
-  // }
+    .action {
+      margin-left: 20px;
+      background-color: white;
+      height: 50px;
+      display: flex;
+      align-items: center;
+    }
+    .form-table {
+      margin-left: 8px;
+    }
+  }
 }
 </style>
