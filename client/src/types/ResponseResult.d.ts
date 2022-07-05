@@ -5,5 +5,4 @@ export interface ResponseResult<T> {
   msg: string
   data: T
   //data 的数据类型是不确定的可变的，这里使用了泛型
-  mock: boolean
 }

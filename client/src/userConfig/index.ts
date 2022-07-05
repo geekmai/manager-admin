@@ -3,7 +3,7 @@
  */
 //@ts-nocheck
 const env = import.meta.env.MODE || 'prod'
-console.log(import.meta.env.MODE)
+// console.log(import.meta.env.MODE)
 // const env = 'dev'
 const EnvConfig: object = {
   development: {

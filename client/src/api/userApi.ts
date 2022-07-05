@@ -4,6 +4,17 @@
 //@ts-nocheck
 import request from './../utils/request'
 
+// 注册新用户
+export async function userSubmit(params: Object) {
+  return await request({
+    url: '/users/operate',
+    method: 'POST',
+    data: params,
+    mock: false
+  })
+}
+
+// 登录
 // 定义返回值的类型
 interface LoginInterface {
   id: string
@@ -20,14 +31,50 @@ export async function login(params: object) {
     mock: false
   })
 }
+// 删除用户
+export async function deleteUser(params: Object) {
+  return await request({
+    url: '/users/delete',
+    method: 'POST',
+    data: params,
+    mock: false
+  })
+}
+// 获取所有用户信息
+// 定义数组包对象的类型
+interface Page {
+  pageNum: number
+  pageSize: number
+  total: number
+}
+interface UserInfo {
+  list: Array<object>
+  page: Page
+}
+export async function getAllSysUsers(params: Object) {
+  return await request<UserInfo>({
+    url: '/users/list',
+    method: 'POST',
+    data: params,
+    mock: false
+  })
+}
+// 获取用户角色列表
+export async function getRolesList() {
+  return await request({
+    url: '/roles/allList',
+    method: 'GET',
+    mock: true
+  })
+}
+// 获取部门列表
+export async function getDeptsList() {
+  return await request({
+    url: '/dept/list',
+    method: 'GET'
+  })
+}
 export default {
-  // login(params) {
-  //   return request({
-  //     url: '/users/login',
-  //     method: 'post',
-  //     data: params
-  //   })
-  // },
   noticeCount(params) {
     return request({
       url: '/leave/count',
@@ -52,28 +99,28 @@ export default {
       mock: false
     })
   },
-  getUserList(params) {
-    return request({
-      url: '/users/list',
-      method: 'get',
-      data: params
-    })
-  },
-  getAllUserList() {
-    return request({
-      url: '/users/all/list',
-      method: 'get',
-      data: {},
-      mock: false
-    })
-  },
-  userDel(params) {
-    return request({
-      url: '/users/delete',
-      method: 'post',
-      data: params
-    })
-  },
+  // getUserList(params) {
+  //   return request({
+  //     url: '/users/list',
+  //     method: 'get',
+  //     data: params
+  //   })
+  // },
+  // getAllUserList() {
+  //   return request({
+  //     url: '/users/all/list',
+  //     method: 'get',
+  //     data: {},
+  //     mock: false
+  //   })
+  // },
+  // userDel(params) {
+  //   return request({
+  //     url: '/users/delete',
+  //     method: 'post',
+  //     data: params
+  //   })
+  // },
   getRoleAllList() {
     return request({
       url: '/roles/allList',
@@ -82,22 +129,22 @@ export default {
       mock: false
     })
   },
-  getRoleList(params) {
-    return request({
-      url: '/roles/list',
-      method: 'get',
-      data: params,
-      mock: false
-    })
-  },
-  getDeptList(params) {
-    return request({
-      url: '/dept/list',
-      method: 'get',
-      data: params,
-      mock: false
-    })
-  },
+  // getRoleList(params) {
+  //   return request({
+  //     url: '/roles/list',
+  //     method: 'get',
+  //     data: params,
+  //     mock: false
+  //   })
+  // },
+  // getDeptList(params) {
+  //   return request({
+  //     url: '/dept/list',
+  //     method: 'get',
+  //     data: params,
+  //     mock: false
+  //   })
+  // },
   deptOperate(params) {
     return request({
       url: '/dept/operate',
@@ -106,14 +153,14 @@ export default {
       mock: false
     })
   },
-  userSubmit(params) {
-    return request({
-      url: '/users/operate',
-      method: 'post',
-      data: params,
-      mock: false
-    })
-  },
+  // userSubmit(params) {
+  //   return request({
+  //     url: '/users/operate',
+  //     method: 'post',
+  //     data: params,
+  //     mock: false
+  //   })
+  // },
   menuSubmit(params) {
     return request({
       url: '/menu/operate',

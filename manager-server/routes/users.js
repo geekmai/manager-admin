@@ -86,8 +86,10 @@ router.post('/delete', async (ctx) => {
   if (res.nModified) {
     ctx.body = util.success(res, `共成功删除${res.nModified}条数据`)
     return
+  } else {
+    ctx.status = 400
+    ctx.body = util.fail('删除失败')
   }
-  ctx.body = util.fail('删除失败')
 })
 
 // 用户新增 / 编辑

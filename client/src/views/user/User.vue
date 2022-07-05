@@ -85,13 +85,12 @@ const pager = reactive({
 // 获取用户列表
 const getUserList = async () => {
   let params = { ...user, ...pager }
-  console.log(params)
+  // console.log(params)
   try {
     const res = await getAllSysUsers(params)
     const { list, page } = res.data
     userList.value = list
     pager.total = page.total
-    // console.log(userList.value)
   } catch (error) {
     throw error
   }
@@ -120,6 +119,7 @@ const queryForm = ref<FormInstance>()
 const handleReset = (formEl: FormInstance | undefined) => {
   if (!formEl) return
   formEl.resetFields()
+  getUserList()
 }
 
 /**
@@ -147,8 +147,8 @@ const handelDel = async (row: any) => {
     const res: any = await deleteUser({
       userIds: [row.userId]
     })
-    console.log(res)
-    if (res.data.nModified > 0) {
+    // console.log(res)
+    if (res.nModified > 0) {
       ElMessage.success('删除成功')
       getUserList()
     } else {
@@ -176,7 +176,7 @@ const handelPatchDel = async () => {
     ElMessage.error('请选择要删除的用户')
     return
   }
-  console.log(checkUserIds.value)
+  // console.log(checkUserIds.value)
   try {
     await deleteUser({
       userIds: checkUserIds.value
