@@ -3,6 +3,7 @@
  */
 //@ts-nocheck
 import request from './../utils/request'
+import { LoginResInterface } from '@/types/UserTypes'
 
 // 注册新用户
 export async function userSubmit(params: Object) {
@@ -16,19 +17,23 @@ export async function userSubmit(params: Object) {
 
 // 登录
 // 定义返回值的类型
-interface LoginInterface {
-  id: string
-  role: string
-  success: boolean
-  token: string
-  username: string
+// interface LoginResInterface {
+//   id: string
+//   role: string
+//   success: boolean
+//   token: string
+//   username: string
+// }
+interface LoginParams {
+  userName: string
+  userPwd: string
 }
-export async function login(params: object) {
-  return await request<LoginInterface>({
+export async function login(params: LoginParams) {
+  return await request<LoginResInterface>({
     url: '/users/login',
     method: 'post',
     data: params,
-    mock: false
+    mock: true
   })
 }
 // 删除用户

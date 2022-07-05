@@ -7,15 +7,12 @@ const breadcrumb: Ref<RouteLocationMatched[]> = ref([])
 
 const getBreadCrumb = () => {
   // 过滤路由信息
-  let matched = route.matched.filter(
-    (item) => item.meta && item.meta.title && item.children.length !== 1
-  )
+  let matched = route.matched.filter((item) => item.meta && item.meta.title && item.children.length !== 1)
   // 给所有的面包屑的最前面加上首页
   const first = matched[0]
+  console.log(first)
   if (first.path !== '/index') {
-    matched = [{ path: '/index', meta: { title: '首页' } } as any].concat(
-      matched
-    )
+    matched = [{ path: '/index', meta: { title: '首页' } } as any].concat(matched)
   }
   breadcrumb.value = matched
 }
@@ -32,11 +29,7 @@ watch(
 <template>
   <div class="">
     <el-breadcrumb>
-      <el-breadcrumb-item
-        v-for="(item, index) in breadcrumb"
-        :key="index"
-        :to="item.path"
-      >
+      <el-breadcrumb-item v-for="(item, index) in breadcrumb" :key="index" :to="item.path">
         {{ item.meta.title }}
       </el-breadcrumb-item>
     </el-breadcrumb>

@@ -5,7 +5,7 @@ import { Lock, User } from '@element-plus/icons-vue'
 import { ElMessage } from 'element-plus'
 import 'element-plus/es/components/message/style/css'
 import { useRouter } from 'vue-router'
-// import { loginStore } from '@/store/login.Store'
+import { loginStore } from '@/store/login.Store'
 import { login } from '@/api/userApi'
 // 表单数据
 const loginForm = reactive({
@@ -26,21 +26,19 @@ const loginRules = reactive<FormRules>({
 
 // 登录表单提交
 const router = useRouter()
-// const loginStoreI = loginStore()
+const loginStoreI = loginStore()
 const onSubmit = async () => {
   try {
-    const userData = await login(loginForm)
-    // const userData = await loginStoreI.userLogin(loginForm)
-    // console.log(userData)
-    // if (userData.code == 200) {
+    // 调用登录接口，解构出用户信息
+    const { data } = await login(loginForm)
+    // 将用户信息存储到本地 storage
+    loginStoreI.saveUserInfo(data)
     ElMessage({
       message: '登陆成功！',
       type: 'success',
       center: true
     })
     router.push({ path: '/index' })
-    // }
-    // console.log(userData)
   } catch (error) {
     console.log(error)
     ElMessage({
@@ -49,11 +47,6 @@ const onSubmit = async () => {
       center: true
     })
   }
-}
-
-// 跳转注册
-const goRegister = () => {
-  router.push('/register')
 }
 </script>
 
@@ -85,7 +78,6 @@ const goRegister = () => {
         <el-form-item>
           <el-button type="primary" style="width: 100%; border: none" @click="onSubmit">登录</el-button>
         </el-form-item>
-        <el-link @click="goRegister">新用户注册</el-link>
       </el-form>
     </div>
   </div>
@@ -121,7 +113,7 @@ const goRegister = () => {
   }
   .login-form {
     width: 400px;
-    height: 280px;
+    height: 300px;
     padding: 4vh;
     margin: 20px;
     background: url('@/assets/login/login_form.png');
