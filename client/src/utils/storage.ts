@@ -3,23 +3,23 @@
  * @author JackBean
  */
 // @ts-nocheck
-import config from '../userConfig'
+import userConfig from '../userConfig'
 export default {
   setItem(key, val) {
-    let storage = this.getStroage()
+    let storage = this.getStorage()
     storage[key] = val
-    window.localStorage.setItem(config.namespace, JSON.stringify(storage))
+    window.localStorage.setItem(userConfig.namespace, JSON.stringify(storage))
   },
   getItem(key) {
-    return this.getStroage()[key]
+    return this.getStorage()[key]
   },
-  getStroage() {
-    return JSON.parse(window.localStorage.getItem(config.namespace) || '{}')
+  getStorage() {
+    return JSON.parse(window.localStorage.getItem(userConfig.namespace) || '{}')
   },
   clearItem(key) {
-    let storage = this.getStroage()
+    let storage = this.getStorage()
     delete storage[key]
-    window.localStorage.setItem(config.namespace, JSON.stringify(storage))
+    window.localStorage.setItem(userConfig.namespace, JSON.stringify(storage))
   },
   clearAll() {
     window.localStorage.clear()

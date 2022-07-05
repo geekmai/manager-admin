@@ -46,7 +46,10 @@ service.interceptors.response.use((res) => {
  * 请求核心函数
  * @param {*} options 请求配置
  */
-const request = async <T = any>(config: AxiosRequestConfig): Promise<ResponseResult<T>> => {
+interface RequestConfig {
+  mock?: boolean
+}
+const request = async <T = any, D = RequestConfig>(config: AxiosRequestConfig<D>): Promise<ResponseResult<T>> => {
   config.method = config.method || 'get'
   if (config.method.toLowerCase() === 'get') {
     config.params = config.data
