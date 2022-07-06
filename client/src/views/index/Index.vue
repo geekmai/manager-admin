@@ -31,7 +31,7 @@ import {} from 'vue'
       color: #333;
     }
     .title {
-      font-size: 40px;
+      font-size: 35px;
       line-height: 62px;
       color: #409eff;
     }

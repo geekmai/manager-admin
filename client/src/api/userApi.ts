@@ -33,7 +33,7 @@ export async function login(params: LoginParams) {
     url: '/users/login',
     method: 'post',
     data: params,
-    mock: true
+    mock: false
   })
 }
 // 删除用户
@@ -77,6 +77,14 @@ export async function getDeptsList() {
   return await request({
     url: '/dept/list',
     method: 'GET'
+  })
+}
+// 获取菜单列表
+export async function getMenuList() {
+  return await request({
+    url: '/menu/list',
+    method: 'GET',
+    data: {}
   })
 }
 export default {

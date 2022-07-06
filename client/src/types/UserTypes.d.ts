@@ -8,5 +8,6 @@ export interface LoginResInterface {
   roleList: Array<string>
   token: string
   userName: string
+  userEmail: string
   deptId: Array<string>
 }

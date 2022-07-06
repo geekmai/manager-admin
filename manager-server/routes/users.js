@@ -38,9 +38,11 @@ router.post('/login', async (ctx) => {
       // 返回用户信息
       ctx.body = util.success(userData)
     } else {
+      ctx.status = 400
       ctx.body = util.fail('账号或密码不正确')
     }
   } catch (error) {
+    ctx.status = 400
     ctx.body = util.fail(error.msg)
   }
 })

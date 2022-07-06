@@ -1,6 +1,7 @@
 <script lang="ts" setup>
-import { ref, reactive } from 'vue'
+import { ref, reactive, onMounted } from 'vue'
 import MenuItem from './MenuItem.vue'
+import { getMenuList } from '@/api/userApi'
 
 // 收纳状态
 const isCollapse = ref(false)
@@ -17,6 +18,7 @@ defineProps({
 })
 
 // 动态菜单数据源
+const userMenu = ref([])
 const menus = reactive([
   {
     path: '/',
@@ -216,6 +218,22 @@ const menus = reactive([
     ]
   }
 ])
+// 调用接口获取菜单列表
+const getUserMenu = async () => {
+  try {
+    const res: any = await getMenuList()
+    // console.log('res=>', res)
+    userMenu.value = res.data
+  } catch (error) {
+    console.error(error)
+  }
+}
+
+onMounted(() => {
+  getUserMenu()
+})
+// 默认激活菜单数据源
+const activeMenu = location.pathname
 </script>
 <template>
   <el-menu
@@ -226,7 +244,7 @@ const menus = reactive([
     :collapse="collapsed"
     :collapse-transition="false"
   >
-    <MenuItem :menus="menus" />
+    <MenuItem :userMenu="userMenu" />
   </el-menu>
 </template>
 
