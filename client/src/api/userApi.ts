@@ -14,6 +14,15 @@ export async function userSubmit(params: Object) {
     mock: false
   })
 }
+// 注册新菜单
+export async function menuSubmit(params: Object) {
+  return await request({
+    url: '/menu/operate',
+    method: 'POST',
+    data: params,
+    mock: true
+  })
+}
 
 // 登录
 // 定义返回值的类型

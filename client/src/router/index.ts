@@ -34,7 +34,7 @@ const routes: Array<RouteRecordRaw> = [
       },
       {
         name: 'user',
-        path: 'system/user',
+        path: '/system/user',
         component: () => import('@/views/user/User.vue'),
         meta: {
           title: '用户管理',
@@ -44,7 +44,7 @@ const routes: Array<RouteRecordRaw> = [
       },
       {
         name: 'menu',
-        path: 'system/menu',
+        path: '/system/menu',
         component: () => import('@/views/menu/Menu.vue'),
         meta: {
           title: '菜单管理',
