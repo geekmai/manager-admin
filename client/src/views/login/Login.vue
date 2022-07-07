@@ -38,7 +38,7 @@ const onSubmit = async () => {
       type: 'success',
       center: true
     })
-    router.push({ path: '/index' })
+    router.push({ path: '/welcome' })
   } catch (error) {
     console.log(error)
     ElMessage({

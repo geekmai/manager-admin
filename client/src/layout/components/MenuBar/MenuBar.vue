@@ -237,7 +237,7 @@ const activeMenu = location.pathname
 </script>
 <template>
   <el-menu
-    default-active="1"
+    :default-active="activeMenu"
     active-text-color="#409eff"
     text-color="#fff"
     class="el-menu"

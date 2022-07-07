@@ -80,10 +80,10 @@ export async function getDeptsList() {
   })
 }
 // 获取菜单列表
-export async function getMenuList() {
+export async function getMenuList(params) {
   return await request({
     url: '/menu/list',
-    method: 'GET',
+    method: 'POST',
     data: {}
   })
 }

@@ -10,9 +10,9 @@ const getBreadCrumb = () => {
   let matched = route.matched.filter((item) => item.meta && item.meta.title && item.children.length !== 1)
   // 给所有的面包屑的最前面加上首页
   const first = matched[0]
-  console.log(first)
-  if (first.path !== '/index') {
-    matched = [{ path: '/index', meta: { title: '首页' } } as any].concat(matched)
+  // console.log(first)
+  if (first.path !== '/welcome') {
+    matched = [{ path: '/welcome', meta: { title: '首页' } } as any].concat(matched)
   }
   breadcrumb.value = matched
 }

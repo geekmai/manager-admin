@@ -50,11 +50,11 @@ app.use(async (ctx, next) => {
 
 // token 有效性验证的中间件
 // 使用 unless 方法可以排除不需要校验的路由
-// app.use(
-//   koajwt({ secret: 'xiaomaimai' }).unless({
-//     path: ['/api/users/login']
-//   })
-// )
+app.use(
+  koajwt({ secret: 'xiaomaimai' }).unless({
+    path: ['/api/users/login']
+  })
+)
 // 定义路由
 // 一级路由
 router.prefix('/api')

@@ -29,9 +29,9 @@ const toPath = (params: string) => {
     </el-sub-menu>
     <!-- 子菜单 -->
     <el-menu-item v-else-if="menu.menuType == 1" @click="toPath(menu.path)" :index="menu.path">
-      <!-- <el-icon>
-        <component :is="menu.icon" />
-      </el-icon> -->
+      <el-icon>
+        <component :is="menu?.icon" />
+      </el-icon>
       <span>{{ menu.menuName }}</span>
     </el-menu-item>
   </template>
